@@ -9,11 +9,19 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../Resources/WelcomeScene.fxml"));
-        primaryStage.setTitle("Nekonecne hry");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void start(Stage stage) throws Exception{
+        WelcomeSceneController controller = new WelcomeSceneController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Resources/WelcomeScene.fxml"));
+        loader.setController(controller);
+
+        Parent parentPane = loader.load();
+        Scene scene = new Scene(parentPane);
+
+        stage.setScene(scene);
+//        stage.setMinHeight(345);
+//        stage.setMinWidth(474);
+        stage.setTitle("Nekonecne hry");
+        stage.show();
     }
 
 
