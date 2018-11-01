@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
+
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="NextTurnButton" layoutX="641.0" layoutY="474.0" mnemonicParsing="false" text="Ukončiť ťah" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-      <LineChart fx:id="intervalsChart" cacheShape="false" centerShape="false" layoutX="32.0" layoutY="14.0" legendVisible="false" maxHeight="200.0" minHeight="200.0" scaleShape="false" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0"
+            prefWidth="779.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="NextTurnButton" layoutX="641.0" layoutY="474.0" mnemonicParsing="false" text="Ukončiť ťah"
+                AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0"/>
+        <LineChart fx:id="intervalsChart" horizontalGridLinesVisible="false" verticalGridLinesVisible="false"
+                   verticalZeroLineVisible="false" horizontalZeroLineVisible="false" cacheShape="false"
+                   centerShape="false" layoutX="32.0" layoutY="14.0" legendVisible="false" maxHeight="200.0"
+                   minHeight="200.0" scaleShape="false" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                   AnchorPane.topAnchor="50.0">
+            <xAxis>
+                <NumberAxis side="LEFT" visible="false" tickMarkVisible="false" tickLabelsVisible="false"
+                            minorTickVisible="false"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" visible="false" tickMarkVisible="false" tickLabelsVisible="false"
+                            minorTickVisible="false"/>
+            </yAxis>
+        </LineChart>
+    </children>
 </AnchorPane>
