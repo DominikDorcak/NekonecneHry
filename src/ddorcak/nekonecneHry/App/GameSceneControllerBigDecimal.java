@@ -9,21 +9,19 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
 
-import ddorcak.nekonecneHry.core.Interval;
-import ddorcak.nekonecneHry.core.PlayerOne;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
+import ddorcak.nekonecneHry.core.BigDecimalInterval;
+import ddorcak.nekonecneHry.core.PlayerOneImpossible;
 import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 
-public class GameSceneController {
+public class GameSceneControllerBigDecimal {
 
-    private List<Interval> aktualnePokrytie;
+    private List<BigDecimalInterval> aktualnePokrytie;
     private int turnCount = 0;
-    private List<Interval> vyber = new ArrayList<>();
+    private List<BigDecimalInterval> vyber = new ArrayList<>();
 
     @FXML
     private ResourceBundle resources;
@@ -40,7 +38,7 @@ public class GameSceneController {
 
     void pridajDataPokrytia() {
         for (int i = 0; i < aktualnePokrytie.size(); i++) {
-            Interval aktualny = aktualnePokrytie.get(i);
+            BigDecimalInterval aktualny = aktualnePokrytie.get(i);
             XYChart.Series series = new XYChart.Series();
             series.getData().add(new XYChart.Data(aktualny.getBorderL().doubleValue() + 1, 0.5d + i % 2 * 0.25d));
             series.getData().add(new XYChart.Data(aktualny.getBorderR().doubleValue() + 1, 0.5d + i % 2 * 0.25d));
@@ -51,7 +49,7 @@ public class GameSceneController {
 
     void pridajDataVyberu() {
         for (int i = 0; i < vyber.size(); i++) {
-            Interval aktualny = vyber.get(i);
+            BigDecimalInterval aktualny = vyber.get(i);
             XYChart.Series series = new XYChart.Series();
             series.getData().add(new XYChart.Data(aktualny.getBorderL().doubleValue() + 1, 0.25d));
             series.getData().add(new XYChart.Data(aktualny.getBorderR().doubleValue() + 1, 0.25d));
@@ -95,10 +93,10 @@ public class GameSceneController {
         assert intervalsChart != null : "fx:id=\"intervalsChart\" was not injected: check your FXML file 'GameScene.fxml'.";
 
 
-        Interval zaklad = new Interval(new BigDecimal(0), new BigDecimal(100000));
-        List<Interval> zakladnyInterval = new ArrayList<>();
+        BigDecimalInterval zaklad = new BigDecimalInterval(new BigDecimal(0), new BigDecimal(100000));
+        List<BigDecimalInterval> zakladnyInterval = new ArrayList<>();
         zakladnyInterval.add(zaklad);
-        aktualnePokrytie = PlayerOne.IMPOSSIBLE.rozdel(zakladnyInterval, true);
+        aktualnePokrytie = PlayerOneImpossible.rozdelBigDecimal(zakladnyInterval, true);
         naplnData();
         turnCount++;
 
@@ -106,7 +104,7 @@ public class GameSceneController {
         NextTurnButton.setOnAction(eh -> {
             turnCount++;
             try {
-                aktualnePokrytie = PlayerOne.IMPOSSIBLE.rozdel(aktualnePokrytie, false);
+                aktualnePokrytie = PlayerOneImpossible.rozdelBigDecimal(aktualnePokrytie, false);
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

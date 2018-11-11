@@ -3,10 +3,10 @@ package ddorcak.nekonecneHry.core;
 import java.math.BigDecimal;
 import java.util.Comparator;
 
-public class IntervalComparator implements Comparator<Interval> {
+public class BigDecimalIntervalComparator implements Comparator<BigDecimalInterval> {
 
     @Override
-    public int compare(Interval o1, Interval o2) {
+    public int compare(BigDecimalInterval o1, BigDecimalInterval o2) {
         BigDecimal borderL1 = o1.getBorderL();
         BigDecimal borderR1 = o1.getBorderR();
         BigDecimal borderL2 = o2.getBorderL();

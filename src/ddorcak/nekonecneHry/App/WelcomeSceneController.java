@@ -1,6 +1,5 @@
 package ddorcak.nekonecneHry.App;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,39 +13,93 @@ import javafx.stage.Stage;
 
 public class WelcomeSceneController {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private URL location;
 
-    @FXML
-    private URL location;
+	@FXML
+	private Button EasyButton;
 
-    @FXML
-    private Button PlayButton;
+	@FXML
+	private Button NormalButton;
 
-    @FXML
-    void initialize() {
-        assert PlayButton != null : "fx:id=\"PlayButton\" was not injected: check your FXML file 'WelcomeScene.fxml'.";
+	@FXML
+	private Button ImpossibleButton;
 
-        PlayButton.setOnAction(eh -> {
+	@FXML
+	void initialize() {
+		assert EasyButton != null : "fx:id=\"EasyButton\" was not injected: check your FXML file 'WelcomeScene.fxml'.";
+		assert NormalButton != null : "fx:id=\"NormalButton\" was not injected: check your FXML file 'WelcomeScene.fxml'.";
+		assert ImpossibleButton != null : "fx:id=\"ImpossibleButton\" was not injected: check your FXML file 'WelcomeScene.fxml'.";
 
-            try {
-                GameSceneController controller = new GameSceneController();
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("../Resources/GameScene.fxml"));
-                loader.setController(controller);
+		ImpossibleButton.setOnAction(eh -> {
 
-                Parent parentPane = loader.load();
-                Scene scene = new Scene(parentPane);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.setTitle("Nekonecne hry");
-                stage.showAndWait();
+			try {
+//                GameSceneControllerBigDecimal controller = new GameSceneControllerBigDecimal();
+				GameSceneControllerImpossible controller = new GameSceneControllerImpossible();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Resources/GameScene.fxml"));
+				loader.setController(controller);
 
-            } catch (IOException iOException) {
-                iOException.printStackTrace();
-            }
-        });
+				Parent parentPane = loader.load();
+				Scene scene = new Scene(parentPane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.setTitle("Nekonecne hry");
+				stage.showAndWait();
 
-    }
+				stage = (Stage) ImpossibleButton.getScene().getWindow();
+				stage.close();
+
+			} catch (IOException iOException) {
+				iOException.printStackTrace();
+			}
+		});
+
+		EasyButton.setOnAction(eh -> {
+
+			try {
+				GameSceneControllerDouble controller = new GameSceneControllerEasy();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Resources/GameScene.fxml"));
+				loader.setController(controller);
+
+				Parent parentPane = loader.load();
+				Scene scene = new Scene(parentPane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.setTitle("Nekonecne hry");
+				stage.showAndWait();
+
+				stage = (Stage) EasyButton.getScene().getWindow();
+				stage.close();
+
+			} catch (IOException iOException) {
+				iOException.printStackTrace();
+			}
+		});
+		
+		NormalButton.setOnAction(eh -> {
+
+			try {
+				GameSceneControllerDouble controller = new GameSceneControllerNormal();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Resources/GameScene.fxml"));
+				loader.setController(controller);
+
+				Parent parentPane = loader.load();
+				Scene scene = new Scene(parentPane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.setTitle("Nekonecne hry");
+				stage.showAndWait();
+
+				stage = (Stage) NormalButton.getScene().getWindow();
+				stage.close();
+
+			} catch (IOException iOException) {
+				iOException.printStackTrace();
+			}
+		});
+
+	}
 }

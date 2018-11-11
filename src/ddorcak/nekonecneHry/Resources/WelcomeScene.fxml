@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="PlayButton" fx:id="PlayButton" layoutX="200.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Hrať!">
+      <Label alignment="CENTER" layoutX="172.0" layoutY="27.0" text="Vyberte obtiažnosť" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="EasyButton" layoutX="178.0" layoutY="116.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" text="Ľahká/Tutoriál">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="NormalButton" layoutX="178.0" layoutY="157.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" text="Normálna">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button id="PlayButton" fx:id="ImpossibleButton" layoutX="178.0" layoutY="199.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" text="Nemožná">
          <font>
             <Font name="Laksaman Bold" size="13.0" />
          </font>

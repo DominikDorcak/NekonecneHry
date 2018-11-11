@@ -2,12 +2,12 @@ package ddorcak.nekonecneHry.core;
 
 import java.math.BigDecimal;
 
-public class Interval {
+public class BigDecimalInterval {
 
     private BigDecimal BorderL;
     private BigDecimal BorderR;
 
-    public Interval(BigDecimal borderL, BigDecimal borderR) {
+    public BigDecimalInterval(BigDecimal borderL, BigDecimal borderR) {
         BorderL = borderL;
         BorderR = borderR;
     }
