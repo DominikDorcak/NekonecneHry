@@ -45,6 +45,7 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 				e.printStackTrace();
 			}
 			naplnData();
+			MAX_POCET_VYBERANYCH++;
 		});
 
 	}

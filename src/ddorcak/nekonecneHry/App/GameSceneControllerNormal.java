@@ -27,10 +27,11 @@ public class GameSceneControllerNormal extends GameSceneControllerDouble {
                 System.out.println("Vyhra!!");
             }
 
-            TurnLabel.setText("�ah: " + turnCount++);
+            TurnLabel.setText("Ťah: " + turnCount++);
             int indexN = (int) (Math.round(Math.random()*(pokrytia.size()-1)));
             aktualnePokrytie = pokrytia.get(indexN);
             naplnData();
+            MAX_POCET_VYBERANYCH++;
         });
 
 

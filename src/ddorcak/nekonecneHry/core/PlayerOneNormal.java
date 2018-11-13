@@ -15,7 +15,7 @@ public class PlayerOneNormal {
             List<DoubleInterval> list = new ArrayList<>();
             double hranica = zakladny.getBorderL();
             while (true){
-                double posunHranice = 1+(Math.random()*4*maximalnaDlzka);
+                double posunHranice = maximalnaDlzka+(Math.random()*4*maximalnaDlzka);
                 list.add(new DoubleInterval(hranica-posun,hranica+posunHranice));
                 hranica += posunHranice;
                 if(hranica>zakladny.getBorderR()){

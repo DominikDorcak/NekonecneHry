@@ -25,6 +25,7 @@ public class GameSceneControllerEasy extends GameSceneControllerDouble{
 			TurnLabel.setText("çah: " + turnCount++);
 				aktualnePokrytie = PlayerOneEasy.rozdel(zakladny, turnCount);
 			naplnData();
+			MAX_POCET_VYBERANYCH++;
 		});
 	}
 }
