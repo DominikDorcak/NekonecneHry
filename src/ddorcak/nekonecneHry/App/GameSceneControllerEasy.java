@@ -11,7 +11,7 @@ public class GameSceneControllerEasy extends GameSceneControllerDouble{
 
 	@FXML
 	void initialize() {
-		TurnLabel.setText("çah: " + turnCount);
+		TurnLabel.setText("≈§ah: " + turnCount);
 		aktualnePokrytie = PlayerOneEasy.rozdel(zakladny, turnCount);
 		naplnData();
 		
@@ -21,8 +21,8 @@ public class GameSceneControllerEasy extends GameSceneControllerDouble{
 				stage.close();
 				System.out.println("Vyhra!!");
 			}
-
-			TurnLabel.setText("çah: " + turnCount++);
+			turnCount++;
+			TurnLabel.setText("≈§ah: " + turnCount);
 				aktualnePokrytie = PlayerOneEasy.rozdel(zakladny, turnCount);
 			naplnData();
 			MAX_POCET_VYBERANYCH++;

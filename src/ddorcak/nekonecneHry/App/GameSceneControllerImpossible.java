@@ -21,13 +21,12 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 		assert NextTurnButton != null : "fx:id=\"NextTurnButton\" was not injected: check your FXML file 'GameScene.fxml'.";
 		assert intervalsChart != null : "fx:id=\"intervalsChart\" was not injected: check your FXML file 'GameScene.fxml'.";
 
-		TurnLabel.setText("çah: " + turnCount);
+		TurnLabel.setText("≈§ah: " + turnCount);
 
 		List<DoubleInterval> zakladnyInterval = new ArrayList<>();
 		zakladnyInterval.add(zakladny);
 		aktualnePokrytie = PlayerOneImpossible.rozdelDouble(zakladnyInterval, true);
 		naplnData();
-		turnCount++;
 
 		NextTurnButton.setOnAction(eh -> {
 			if ((!vyber.isEmpty()) && ValidatorDouble.cowered(zakladny, vyber)) {
@@ -35,8 +34,8 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 				stage.close();
 				System.out.println("Vyhra!!");
 			}
-
-			TurnLabel.setText("çah: " + turnCount++);
+			turnCount++;
+			TurnLabel.setText("≈§ah: " + turnCount);
 			try {
 				aktualnePokrytie = PlayerOneImpossible.rozdelDouble(aktualnePokrytie, false);
 			} catch (ExecutionException e) {

@@ -14,7 +14,7 @@ public class GameSceneControllerNormal extends GameSceneControllerDouble {
 
     @FXML
     void initialize() {
-        TurnLabel.setText("�ah: " + turnCount);
+        TurnLabel.setText("Ťah: " + turnCount);
         pokrytia = PlayerOneNormal.vygenerujRozdelenia(zakladny);
         int index0 = (int) (Math.round(Math.random()*(pokrytia.size()-1)));
         aktualnePokrytie = pokrytia.get(index0);
@@ -26,8 +26,8 @@ public class GameSceneControllerNormal extends GameSceneControllerDouble {
                 stage.close();
                 System.out.println("Vyhra!!");
             }
-
-            TurnLabel.setText("Ťah: " + turnCount++);
+            turnCount++;
+            TurnLabel.setText("Ťah: " + turnCount);
             int indexN = (int) (Math.round(Math.random()*(pokrytia.size()-1)));
             aktualnePokrytie = pokrytia.get(indexN);
             naplnData();
