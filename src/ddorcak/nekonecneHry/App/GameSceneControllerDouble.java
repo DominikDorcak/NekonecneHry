@@ -19,6 +19,8 @@ import javafx.scene.control.Label;
 public class GameSceneControllerDouble {
 
     protected int MAX_POCET_VYBERANYCH = 1;
+    protected XYChart.Series vybranySeries;
+    protected DoubleInterval vybrany;
     protected int pocetVybranych = 0;
     protected List<DoubleInterval> aktualnePokrytie;
     protected int turnCount = 1;
@@ -40,6 +42,9 @@ public class GameSceneControllerDouble {
 
     @FXML
     protected Label TurnLabel;
+
+    @FXML
+    protected Button RemoveButton;
 
     void pridajDataPokrytia() {
         for (int i = 0; i < aktualnePokrytie.size(); i++) {

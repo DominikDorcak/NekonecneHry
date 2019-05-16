@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Button fx:id="NextTurnButton" layoutX="641.0" layoutY="474.0" mnemonicParsing="false" text="Ukončiť ťah" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" />
         <LineChart fx:id="intervalsChart" cacheShape="false" centerShape="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="32.0" layoutY="14.0" legendVisible="false" maxHeight="200.0" minHeight="200.0" scaleShape="false" verticalGridLinesVisible="false" verticalZeroLineVisible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
@@ -23,5 +23,6 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Button fx:id="RemoveButton" layoutX="535.0" layoutY="490.0" mnemonicParsing="false" text="Odobrať" />
     </children>
 </AnchorPane>
