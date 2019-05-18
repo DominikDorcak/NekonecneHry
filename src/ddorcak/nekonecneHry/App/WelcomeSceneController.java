@@ -47,8 +47,7 @@ public class WelcomeSceneController {
 				stage.setTitle("Nekonecne hry");
 				stage.showAndWait();
 
-				stage = (Stage) ImpossibleButton.getScene().getWindow();
-				stage.close();
+				ImpossibleButton.getScene().getWindow().hide();
 
 			} catch (IOException iOException) {
 				iOException.printStackTrace();
@@ -70,8 +69,7 @@ public class WelcomeSceneController {
 				stage.setTitle("Nekonecne hry");
 				stage.showAndWait();
 
-				stage = (Stage) EasyButton.getScene().getWindow();
-				stage.close();
+				EasyButton.getScene().getWindow().hide();
 
 			} catch (IOException iOException) {
 				iOException.printStackTrace();
@@ -93,8 +91,7 @@ public class WelcomeSceneController {
 				stage.setTitle("Nekonecne hry");
 				stage.showAndWait();
 
-				stage = (Stage) NormalButton.getScene().getWindow();
-				stage.close();
+				NormalButton.getScene().getWindow().hide();
 
 			} catch (IOException iOException) {
 				iOException.printStackTrace();

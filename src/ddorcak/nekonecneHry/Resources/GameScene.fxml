@@ -23,6 +23,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="RemoveButton" layoutX="535.0" layoutY="490.0" mnemonicParsing="false" text="Odobrať" />
+      <Button fx:id="RemoveButton" layoutX="535.0" layoutY="490.0" mnemonicParsing="false" text="Odobrať" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="150.0" />
     </children>
 </AnchorPane>

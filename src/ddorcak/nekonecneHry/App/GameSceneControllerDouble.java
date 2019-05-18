@@ -1,6 +1,7 @@
 package ddorcak.nekonecneHry.App;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +10,16 @@ import java.util.concurrent.ExecutionException;
 
 import ddorcak.nekonecneHry.core.*;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.XYChart;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class GameSceneControllerDouble {
 
@@ -26,7 +31,7 @@ public class GameSceneControllerDouble {
     protected int turnCount = 1;
     protected List<DoubleInterval> vyber = new ArrayList<>();
     protected final DoubleInterval zakladny = new DoubleInterval(-10000, 10000);
-    protected int score;
+    protected int score = 10000;
 
     @FXML
     protected ResourceBundle resources;
@@ -92,20 +97,51 @@ public class GameSceneControllerDouble {
         if (isClickable) {
             line.setOnMouseClicked(eh -> {
                 ObservableList<XYChart.Data> ciara = series.getData();
-                DoubleInterval vybrany = new DoubleInterval((double) ciara.get(0).getXValue(),
+                vybrany = new DoubleInterval((double) ciara.get(0).getXValue(),
                         (double) ciara.get(1).getXValue());
                 if (pocetVybranych < MAX_POCET_VYBERANYCH) {
                     vyber.add(vybrany);
 
-                    XYChart.Series vybranySeries = new XYChart.Series();
+                    vybranySeries = new XYChart.Series();
                     vybranySeries.getData().add(new XYChart.Data(vybrany.getBorderL() + 1, 0.25d));
                     vybranySeries.getData().add(new XYChart.Data(vybrany.getBorderR() + 1, 0.25d));
                     intervalsChart.getData().add(vybranySeries);
 
                     pocetVybranych++;
+                    RemoveButton.setDisable(pocetVybranych!=MAX_POCET_VYBERANYCH);
+
                 }
             });
         }
+    }
+
+    void odobratAkcia(){
+        RemoveButton.setDisable(pocetVybranych!=MAX_POCET_VYBERANYCH);
+        RemoveButton.setOnAction(eh ->{
+            if (pocetVybranych==MAX_POCET_VYBERANYCH) {
+                intervalsChart.getData().remove(vybranySeries);
+                vyber.remove(vybrany);
+                pocetVybranych--;
+                RemoveButton.setDisable(pocetVybranych!=MAX_POCET_VYBERANYCH);
+            }
+
+        });
+    }
+
+    void showWinScene(Button button,boolean win) throws IOException {
+        WinSceneController controller = new WinSceneController(win,this.score);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Resources/WinScene.fxml"));
+        loader.setController(controller);
+
+
+        Parent parentPane = loader.load();
+        Scene scene = new Scene(parentPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Nekonecne hry");
+        stage.show();
+
+        button.getScene().getWindow().hide();
     }
 
 

@@ -1,5 +1,6 @@
 package ddorcak.nekonecneHry.App;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 		assert NextTurnButton != null : "fx:id=\"NextTurnButton\" was not injected: check your FXML file 'GameScene.fxml'.";
 		assert intervalsChart != null : "fx:id=\"intervalsChart\" was not injected: check your FXML file 'GameScene.fxml'.";
 
-		TurnLabel.setText("Ťah: " + turnCount);
+		TurnLabel.setText("Ťah: " + turnCount + "\tSkóre: " + score);
 
 		List<DoubleInterval> zakladnyInterval = new ArrayList<>();
 		zakladnyInterval.add(zakladny);
@@ -29,13 +30,29 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 		naplnData();
 
 		NextTurnButton.setOnAction(eh -> {
-			if ((!vyber.isEmpty()) && ValidatorDouble.cowered(zakladny, vyber)) {
-				Stage stage = (Stage) NextTurnButton.getScene().getWindow();
-				stage.close();
-				System.out.println("Vyhra!!");
-			}
+			score-=4000;
 			turnCount++;
-			TurnLabel.setText("Ťah: " + turnCount);
+			if(this.score<0){
+				try {
+					showWinScene(NextTurnButton,false);
+					Stage stage = (Stage) NextTurnButton.getScene().getWindow();
+					stage.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if ((!vyber.isEmpty()) && ValidatorDouble.cowered(zakladny, vyber)) {
+				try {
+					showWinScene(NextTurnButton,true);
+					Stage stage = (Stage) NextTurnButton.getScene().getWindow();
+					stage.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			TurnLabel.setText("Ťah: " + turnCount + "\tSkóre: " + score);
+
 			try {
 				aktualnePokrytie = PlayerOneImpossible.rozdelDouble(aktualnePokrytie, false);
 			} catch (ExecutionException e) {
@@ -47,5 +64,6 @@ public class GameSceneControllerImpossible extends GameSceneControllerDouble {
 			MAX_POCET_VYBERANYCH++;
 		});
 
+		odobratAkcia();
 	}
 }
